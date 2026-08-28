@@ -1,37 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Bakım Proforma Panel</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
-    <style id="expo-reset">
-      /* These styles make the body full-height */
-      html,
-      body {
-        height: 100%;
-      }
-      /* These styles disable body scrolling if you are using <ScrollView> */
-      body {
-        overflow: hidden;
-      }
-      /* These styles make the root element full-height */
-      #root {
-        display: flex;
-        height: 100%;
-        flex: 1;
-      }
-    </style>
-  <link rel="icon" href="./favicon.ico"/></head>
-
-  <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- The root element for your Expo app. -->
-    <div id="root"></div>
-  <script src="./_expo/static/js/web/index-ee2a2d613f317fe1cc9191ccbcce91a6.js" defer></script>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Panel taşındı — Bakım Proforma</title>
+<meta http-equiv="refresh" content="4; url=https://bakimx-panel.github.io/" />
+<style>
+  html,body{height:100%;margin:0}
+  body{background:#0D1526;color:#F3F5FA;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+       display:flex;align-items:center;justify-content:center;padding:24px}
+  .k{max-width:540px}
+  h1{font-size:22px;margin:0 0 12px}
+  p{color:#9AA4C0;line-height:1.6;font-size:14px;margin:0 0 16px}
+  a.b{display:inline-block;background:#ED1C24;color:#fff;text-decoration:none;
+      padding:14px 22px;border-radius:12px;font-weight:600;letter-spacing:.5px}
+  .n{margin-top:20px;font-size:12px;color:#6C7594;border-top:1px solid #2A3554;padding-top:14px}
+  code{color:#F3F5FA}
+</style>
+</head>
+<body>
+  <div class="k">
+    <h1>Panel yeni adrese taşındı</h1>
+    <p>Servis Danışmanı Paneli artık kendi adresinde yayında. Birkaç saniye içinde
+       otomatik yönlendirileceksin.</p>
+    <p><a class="b" href="https://bakimx-panel.github.io/">PANELİ AÇ →</a></p>
+    <p class="n">Yeni adres: <code>bakimx-panel.github.io</code><br />
+       Panel güvenlik gereği kendi alan adına alındı, bu yüzden yeni adreste
+       <strong>bir kez daha giriş yapman</strong> gerekiyor. Sonrasında profil
+       geçişi yine şifresiz çalışacak. Eski adresi yer imlerinden sil.</p>
+  </div>
+  <script>
+    // Tasinmanin TEK amaci, oturum anahtarlarinin bu paylasilan origin'de
+    // durmamasi. panel_profil_oturumu:<ad> anahtarlari dogrudan
+    // refresh_token tasiyordu (bkz. panel/data/profilOturumu.ts), Supabase
+    // de kendi sb-* anahtarini buraya yaziyordu. Bu origin'de saklanmasi
+    // gereken BASKA hicbir sey yok (kalan iki sayfa duz HTML), o yuzden
+    // secici silme yerine tamamen temizleniyor - gozden kacan bir anahtar
+    // kalmasin.
+    try { localStorage.clear(); } catch (e) {}
+    try { sessionStorage.clear(); } catch (e) {}
+  </script>
 </body>
 </html>
